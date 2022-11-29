@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: "Mulish";
+}
+
+/* Navigation */
+
+.nav-container {
+    background: #7E49A7;
+    height: 149px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 149px;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav .logo {
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    color: #CB33A0;
+    text-shadow:
+    -1px -1px 0 #F5F5F5,
+     0   -1px 0 #F5F5F5,
+     1px -1px 0 #F5F5F5,
+     1px  0   0 #F5F5F5,
+     1px  1px 0 #F5F5F5,
+     0    1px 0 #F5F5F5,
+    -1px  1px 0 #F5F5F5,
+    -1px  0   0 #F5F5F5;
+}
+
+nav .slogan {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #F5F5F5;
+    text-shadow:
+    0 0 0 #F5F5F5,
+    0 0 0 #F5F5F5,
+    0 0 0 #F5F5F5,
+    0 0 0 #F5F5F5,
+    0 0 0 #F5F5F5,
+    0 0 0 #F5F5F5,
+    0 0 0 #F5F5F5,
+    0 0 0 #F5F5F5;
+}
+
+.nav-items li {
+    list-style: none;
+    margin-right: 100px;
+}
+
+.nav-items li:nth-last-of-type(1) {
+    margin: 0;
+}
+
+.nav-items li a {
+    color: #F5F5F5;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    text-decoration: none;
+}
