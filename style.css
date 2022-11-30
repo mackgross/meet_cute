@@ -69,9 +69,17 @@ nav .slogan {
     0 0 0 #F5F5F5;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 .nav-items li {
     list-style: none;
     margin-right: 30px;
+    float: right;
 }
 
 .nav-items li:nth-last-of-type(1) {
@@ -82,6 +90,7 @@ nav .slogan {
 }
 
 .nav-items li a {
+    display: block;
     color: #F5F5F5;
     font-family: 'Mulish';
     font-style: normal;
