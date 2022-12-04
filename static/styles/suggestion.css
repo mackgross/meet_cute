@@ -42,15 +42,6 @@ body {
 }
 
 /* Hero Section */
-.display-5 {
-    font-family: Mulish !important;
-
-}
-.lc-block svg {
-    color: #7e49a7;
-}
-.lc-block a {
-    background: #CB33A0;
-    border: 2px solid #000000;
-    border-radius: 10px;
+.mb-3 {
+    width: 300px;
 }
