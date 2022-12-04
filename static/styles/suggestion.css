@@ -42,6 +42,9 @@ body {
 }
 
 /* Hero Section */
-.mb-3 {
-    width: 300px;
+.form-group label {
+    position: left;
+}
+.book-suggestion {
+    width: 100px !important;
 }
