@@ -33,5 +33,29 @@ body {
 {
     color: #f5f5f5 !important;
     font-weight: 700;
-    font-family: Mulish;
+    float: right;
+    text-align: left;
+}
+.navbar-toggler-icon
+{
+    color: #f5f5f5;
+    font-size: 30px !important;
+}
+.navbar-toggler
+{
+    outline: none !important;
+}
+
+/* Banner Section */
+#banner
+{
+    background-image: linear-gradient(to right, #7e49a7, #7e49a7);
+    color: #f5f5f5;
+    padding-top: 5%;
+}
+.slogan
+{
+    font-size: 36px;
+    font-weight: 700px;
+    margin-top: 10px;
 }
