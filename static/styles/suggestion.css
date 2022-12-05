@@ -42,9 +42,8 @@ body {
 }
 
 /* Hero Section */
-.form-group label {
-    position: left;
-}
-.book-suggestion {
-    width: 100px !important;
+.btn {
+    background-color: #CB33A0;
+    border: 2px solid #000000;
+    border-radius: 10px;
 }

@@ -1,22 +1,32 @@
-let books = [];
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import { collection, getDocs} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-$('.book_suggestion').on('input', ())
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyB77tJNb56LnqtHfQMmMQwOz5kVbvXTQII",
+  authDomain: "meet-cute-book-recommender.firebaseapp.com",
+  projectId: "meet-cute-book-recommender",
+  storageBucket: "meet-cute-book-recommender.appspot.com",
+  messagingSenderId: "50878035228",
+  appId: "1:50878035228:web:fd01a4f2b7f35faf2936d9",
+  measurementId: "G-MM4VWRFN6S"
+};
 
-const renderBooks = function (){
-    db collection('books').get().then(data =>{
-        data.docs.forEach(element =>{
-            const singleBook = element.data();
-            books.push(singleBook);
-        });
-        createList(books);
-    });
-}
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-// this is for displaying books in the browser
-const createList = function (books) {
-    books.forEach(element =>{
-        $('.books').append('<p>'+element.name+'</p>');
-    })
-}
+// Add a user suggestion to the "suggestions" collection
+//userInput = document.getElementById("booksuggestion").value
 
-renderBooks();
+// Get all book titles
+const querySnapshot = await getDocs(collection(db, "books"));
+querySnapshot.forEach((doc) => {
+    console.log(doc.id, "=>", doc.data());
+});
