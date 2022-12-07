@@ -31,6 +31,9 @@ const db = getFirestore(app);
 //    console.log(doc.id, "=>", doc.data());
 //});
 
+// Return recommendations
+const returnRecs = new bootstrap.Modal(document.getElementById('myModal'), options)
+
 // Get suggested book
 const suggestionForm = document.querySelector('.suggestion-form');
 const bookSuggestion = document.querySelector('.suggestion-input');
