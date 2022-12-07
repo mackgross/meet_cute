@@ -40,3 +40,20 @@ body {
 .navbar-toggler {
     outline: none !important;
 }
+
+/* Formatting Search Bar */
+.find-book {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+.submit-button {
+    margin-left: 10px;
+    width: 10%;
+    height: 40px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    background-color: #CB33A0;
+    color: #f5f5f5;
+}

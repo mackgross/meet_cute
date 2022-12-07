@@ -4,7 +4,6 @@
 #              clean the data, and recommend books based on book synopses
 
 # Import necessary libraries
-import os
 import pandas as pd
 import nltk
 import re
@@ -13,7 +12,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Load the dataset
-book_data = '/Data/books.csv'
+book_data = 'books.csv'
 book_df = pd.read_csv(book_data)
 
 # Preprocess text data

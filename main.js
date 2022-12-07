@@ -26,7 +26,28 @@ const db = getFirestore(app);
 //userInput = document.getElementById("booksuggestion").value
 
 // Get all book titles
-const querySnapshot = await getDocs(collection(db, "books"));
-querySnapshot.forEach((doc) => {
-    console.log(doc.id, "=>", doc.data());
+//const querySnapshot = await getDocs(collection(db, "books"));
+//querySnapshot.forEach((doc) => {
+//    console.log(doc.id, "=>", doc.data());
+//});
+
+// Get suggested book
+const suggestionForm = document.querySelector('.suggestion-form');
+const bookSuggestion = document.querySelector('.suggestion-input');
+const suggestionSubmit = document.querySelector('.suggestion-submit')
+const modal = document.querySelector('.modal-wrap')
+const close = document.querySelector('.modal-close')
+
+suggestionSubmit.addEventListener('click', (e) => {
+  e.preventDefault();
+  db.collection('book-suggestions').doc().set({
+    bookSuggestion: bookSuggestion.value
+  }).then(() => {
+    suggestionForm.reset();
+    modal.classList.toggle('display-none');  
+  });
 });
+
+close.addEventListener('click', () => {
+  modal.classList.toggle('display-none');
+})
