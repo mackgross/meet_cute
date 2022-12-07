@@ -84,11 +84,14 @@ h5.modal-title {
 }
 
 /* Formatting Search Bar */
-.find-book {
-    width: 60%;
-    padding: 8px;
-    border: 1px solid #000000;
-    border-radius: 10px;
+.book-search-box {
+    max-width: 600px;
+    margin: 20px auto;
+}
+.book-search-box select {
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 20px;
 }
 #get-recs-btn {
     margin-left: 10px;

@@ -31,6 +31,11 @@ const db = getFirestore(app);
 //    console.log(doc.id, "=>", doc.data());
 //});
 
+// create searchable select dropdown
+$(document).ready(function(){
+  $('.book-search-box select').selectpicker();
+})
+
 // Return recommendations
 const returnRecs = new bootstrap.Modal(document.getElementById('myModal'), options)
 
