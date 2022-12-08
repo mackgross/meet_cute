@@ -23,16 +23,18 @@ for i in range(len(book_df)):
     title = book_df.loc[i, 'title']
     norm_title = normalize_titles(title)
     book_df.loc[i, 'title'] = norm_title
-
 book_list = book_df['title'].values
+
+# alphabetize list of books
+books_sorted = sorted(book_list)
+print(books_sorted)
 
 # function to create select options
 def html_select_options(list_items):
-    HTMl_string = "<select>\n"
+    HTML_string = ""
     for item in list_items:
-        HTMl_string += "<option>{}</option>\n".format(item)
-    HTMl_string += "</select>"
-    return HTMl_string
+        HTML_string += "<li>{}</li>\n".format(item)
+    return HTML_string
 
 # call html_select_options on book_list
-print(html_select_options(book_list))
+# print(html_select_options(books_sorted))
