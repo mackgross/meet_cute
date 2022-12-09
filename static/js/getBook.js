@@ -174,7 +174,7 @@ function updateName(selectedLi) {
     searchInput.value = "";
     addBook(selectedLi.textContent);
     wrapper.classList.remove("active");
-    spanItem.textContent = selectedLi.textContent;
+    spanItem.innerHTML = selectedLi.innerText;
 }
 
 function addBook(selectedBook) {

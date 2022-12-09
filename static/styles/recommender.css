@@ -84,96 +84,16 @@ h5.modal-title {
 }
 
 /* Formatting Search Bar */
-.wrapper {
-    width: 650px;
-    margin: 10px auto 0;
-}
-.select-btn, .book-options li {
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-}
-.select-btn {
-    height: 65px;
-    font-size: 22px;
-    padding: 0 20px;
-    border-radius: 10px;
+.select-book select {
     background: #f5f5f5;
-    justify-content: space-between;
-}
-.select-btn i {
-    font-size: 28px;
-    transition: transform 0.3s linear;
-}
-.wrapper.active .select-btn i {
-    transform: rotate(-180deg);
-}
-.book-list {
-    display: none;
-    background: #f5f5f5;
-    margin-top: 15px;
-    padding: 20px;
-    border-radius: 10px;
-}
-.wrapper.active .book-list {
-    display: block;
-}
-.book-list .search-books {
-    position: relative;
-}
-.search-books i {
-    top: 50%;
-    left: 15px;
-    color: #999;
-    font-size: 20px;
-    pointer-events: none;
-    transform: translateY(-50%);
-    position: absolute;
-}
-.search-books input {
-    height: 53px;
-    width: 100%;
-    font-size: 15px;
-    padding: 0 15px 0 43px;
-    outline: none;
-    border: 1px solid #b3b3b3;
-}
-.book-list .book-options {
-    margin-top: 10px;  
-    max-height: 250px; 
-    overflow-y: auto;
-    padding-right: 7px;
-}
-.book-options::-webkit-scrollbar {
-    width: 7px;
-}
-.book-options::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 25px;
-}
-.book-options::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 25px;
-}
-.book-options li {
-    height: 50px;
-    padding: 0 13px;
-    font-size: 19px;
-    border-radius: 5px;
-}
-.book-options li a {
-    color: #000000;
-}
-.book-options li:hover {
-    background: #DDC1E18F;
-}
-.book-options li:selected {
-    background: #DDC1E18F;
+    width: 30%;
+    height: 38px;
+    border: 1px solid #000000;
 }
 #get-recs-btn {
-    margin-top: 15px;
+    margin-top: 20px;
     margin-left: 10px;
-    width: 20%;
+    width: 15%;
     height: 50px;
     border: 1px solid #000000;
     border-radius: 10px;
