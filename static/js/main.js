@@ -24,6 +24,18 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 */
 
+// Get selected book
+function update() {
+  var select = document.getElementById('bookChoice');
+  var option = select.options[select.selectedIndex];
+  var bookSelection = option.text;
+}
+update();
+
+// return recomendations
+
+
+
 // Add a user suggestion to the "suggestions" collection
 //userInput = document.getElementById("booksuggestion").value
 
