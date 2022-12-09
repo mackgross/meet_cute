@@ -88,12 +88,12 @@ h5.modal-title {
     width: 650px;
     margin: 10px auto 0;
 }
-.select-book-btn, .book-options li {
+.select-btn, .book-options li {
     display: flex;
     cursor: pointer;
     align-items: center;
 }
-.select-book-btn {
+.select-btn {
     height: 65px;
     font-size: 22px;
     padding: 0 20px;
@@ -101,11 +101,11 @@ h5.modal-title {
     background: #f5f5f5;
     justify-content: space-between;
 }
-.select-book-btn iconify-icon {
+.select-btn i {
     font-size: 28px;
     transition: transform 0.3s linear;
 }
-.wrapper.active .select-book-btn iconify-icon {
+.wrapper.active .select-btn i {
     transform: rotate(-180deg);
 }
 .book-list {
@@ -121,12 +121,13 @@ h5.modal-title {
 .book-list .search-books {
     position: relative;
 }
-.search-books .search-icon {
-    margin-top: 15px;
+.search-books i {
+    top: 50%;
     left: 15px;
     color: #999;
     font-size: 20px;
-    line-height: 53px;
+    pointer-events: none;
+    transform: translateY(-50%);
     position: absolute;
 }
 .search-books input {
@@ -159,6 +160,9 @@ h5.modal-title {
     padding: 0 13px;
     font-size: 19px;
     border-radius: 5px;
+}
+.book-options li a {
+    color: #000000;
 }
 .book-options li:hover {
     background: #DDC1E18F;
