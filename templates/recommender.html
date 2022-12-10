@@ -29,7 +29,7 @@
 </head>
 <body>
   <!--Modal Start-->
-  <div class="modal" id="bookRecModal" tabindex="-1">
+  <!--<div class="modal" id="bookRecModal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
   <!--Modal End-->
   <!--Navigation Start-->
   <section id="nav-bar">
@@ -1338,9 +1338,30 @@
           <option>You've Reached Sam </option>
         </select>
       </div>
-      <button onclick="showRecs()" type="button" id="get-recs-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookRecModal">
+      <button type="submit" id="get-recs-btn" class="btn btn-primary">
         Find Your Matches
       </button>
+      <div id="results" style="display: none;">
+        <div class="results-header">
+          <h5>Your Matches:</h5>
+        </div>
+        <div class="results-body">
+          <p>{{recs[0]}}</p>
+          <p>{{recs[1]}}</p>
+          <p>{{recs[2]}}</p>
+        </div>
+      </div>
+      <script>
+        const targetDiv = document.getElementById("results")
+        const btn = document.getElementById("get-recs-btn")
+        btn.onclick = function () {
+          if (targetDiv.style.display == "none") {
+            targetDiv.style.display = "block";
+          } else {
+            targetDiv.style.display = "none";
+          }
+        };
+      </script>
     </div>
   </section>
   <!--Hero End-->
