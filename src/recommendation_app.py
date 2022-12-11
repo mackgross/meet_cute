@@ -13,12 +13,6 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, render_template, flash, request
-import firebase_admin
-from firebase_admin import credentials
-
-cred = credentials.Certificate("path/to/serviceAccountKey.json")
-firebase_admin.initialize_app(cred)
-
 
 # Load the dataset
 book_data = 'books.csv'
