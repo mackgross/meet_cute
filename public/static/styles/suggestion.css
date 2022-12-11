@@ -75,14 +75,22 @@ body {
     border: 2px solid #000000;
     border-radius: 10px;
 }
-.suggestion-input {
-    width: 60%;
-    padding: 8px;
+.suggestion {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.suggestion input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
     border: 1px solid #000000;
     border-radius: 10px;
+    box-sizing: border-box;
 }
-#get-suggestion-btn {
-    margin-left: 10px;
+.suggestion button {
+    margin-top: 10px;
     width: 10%;
     height: 40px;
     border: 1px solid #000000;
