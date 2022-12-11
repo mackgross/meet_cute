@@ -7,16 +7,16 @@ Description: Run the book recommendation function when the "Find Your Matches"
 
 # import necessary libraries
 import book_recommender
-import sys
-import json
+from flask import Flask, render_template, flash, request
 
-userSelection = sys.argv[1]
+app = Flask(__name__)
 
-def get_recs(choice):
-    results = book_recommender.book_recommender(book_title=str(choice))
-    return results
+@app.route("/")
+def index():
+    return render_template('index.html')
 
-recResult = get_recs(userSelection)
-print(json.dumps(recResult))
-
-sys.stdout.flush()
+@app.route("/recommendations", methods=["POST", "GET"])
+def recommend_book():
+    recommendations = request.args.get('book-choice')
+    books = book_recommender.book_recs(recommendations)
+    return render_template('results.html', book=books)

@@ -10,6 +10,8 @@ import re
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import sys
+import json
 
 # Load the dataset
 book_data = 'books.csv'
@@ -55,7 +57,7 @@ doc_similarity_df = pd.DataFrame(doc_similarity)
 book_list = book_df['title'].values
 author_list = book_df['author'].values
 # adapted from week 8 coding practice, returns top 3 similar books for the selected book
-def book_recommender(book_title, books=book_list, authors=author_list, doc_sims=doc_similarity_df):
+def book_recs(book_title, books=book_list, authors=author_list, doc_sims=doc_similarity_df):
     book_index = np.where(books == book_title)[0][0]
     book_similarities = doc_sims.iloc(book_index).values
     similar_book_indices = np.argsort(-book_similarities)[1:4]
@@ -69,3 +71,14 @@ def book_recommender(book_title, books=book_list, authors=author_list, doc_sims=
         books_with_authors.append(str(b_title + 'by ' + b_author))
     
     return books_with_authors
+
+
+
+# send results to javascript
+""" data_to_return = ['Book Recommendations']
+userSelection = sys.argv[1]
+results = book_recommender(book_title='Twilight')
+for i in range(len(results)):
+    data_to_return.append(results[i])
+print(results[0])
+sys.stdout.flush() """
