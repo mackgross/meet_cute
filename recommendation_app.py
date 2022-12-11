@@ -55,10 +55,16 @@ tfidf_matrix = tf.fit_transform(norm_corpus)
 # main functionality
 doc_similarity = cosine_similarity(tfidf_matrix)
 doc_similarity_df = pd.DataFrame(doc_similarity)
-book_list = np.array(book_df['title'].values)
-author_list = np.array(book_df['author'].values)
+book_list = book_df.loc[:,'title'].values
+author_list = book_df.loc[:,'author'].values
+# lower case book titles and author names for easier handling, also strip trailing spaces
+book_list = [b.lower().strip() for b in book_list]
+author_list = [a.lower().strip() for a in author_list]
+# convert lists to numpy arrays
+np_book_list = np.array(book_list)
+np_author_list = np.array(author_list)
 # adapted from week 8 coding practice, returns top 3 similar books for the selected book
-def book_recs(book_title, books=book_list, authors=author_list, doc_sims=doc_similarity_df):
+def book_recs(book_title, books=np_book_list, authors=np_author_list, doc_sims=doc_similarity_df):
     if isinstance(book_title, str):
         book_index = np.where(books == book_title)[0][0]
         book_similarities = doc_sims.iloc[book_index].values
@@ -70,11 +76,12 @@ def book_recs(book_title, books=book_list, authors=author_list, doc_sims=doc_sim
         for i in range(len(similar_books)):
             b_title = similar_books[i]
             b_author = similar_authors[i]
-            books_with_authors.append(str(b_title + 'by ' + b_author))
-        
+            books_with_authors.append(str(b_title + ' by ' + b_author))
         return books_with_authors
     else:
         return "book title was not a string"
+
+# print(book_recs(book_title='beach read'))
 
 # create and run app
 app = Flask(__name__)
@@ -95,13 +102,12 @@ def recommendations():
 def suggestions():
     return render_template('suggestions.html')
 
-@app.route("/results")
+@app.route("/results", methods=['GET', 'POST'])
 def recommend_book():
-    choice = request.args.get('book-choice')
-    for b in range(len(book_list)):
-        if book_list[b] == choice:
-            books = book_recs(book_title=choice)
+    choice = request.form.get('book-choice')
+    cleaned = choice.lower().strip()
+    books = book_recs(book_title=cleaned)
     return render_template('results.html', book=books)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

@@ -4,8 +4,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Matches</title>
         <!-- Results CSS File -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/results.css') }}">
+        <link rel="stylesheet" href="../static/styles/results.css">
         <!-- Mulish Font Family -->
         <link href="https://fonts.cdnfonts.com/css/mulish" rel="stylesheet">
         <!-- Bootstrap CSS and Javascript -->
@@ -48,12 +49,16 @@
                 </div>
                 <div class="lc-block">
                   <div editable="rich">
-                    <h2 class="display-5 fw-bold">Here are your matches!</h2>
+                    <h2 class="display-4 fw-bold">Here are your matches!</h2>
                   </div>
                   <div class="book-recs">
-                    <h5>{{book[0]}}</h5>
-                    
+                    <center>
+                      <h5>{{book[0]}}</h5>
+                      <h5>{{book[1]}}</h5>
+                      <h5>{{book[2]}}</h5>
+                    </center>
                   </div>
+                  <a href="/templates/recommender.html" role="button" id="return-to-recs" class="btn btn-primary">Find More Matches</a>
                 </div>
             </div>
         </section>

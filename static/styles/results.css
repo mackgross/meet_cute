@@ -47,4 +47,21 @@ body {
 }
 .book-recs h5 {
     margin: 30px;
+    padding: 10px;
+    font-weight: 500px;
+    width: 60%;
+    font-size: 24px;
+    background: rgba(221, 193, 225, 0.56);
+    border: 3px solid #7e49a7;
+    align-items: center;
+    text-align: center;
+}
+#return-to-recs {
+    margin-left: 10px;
+    width: fit-content;
+    height: 50px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    background-color: #CB33A0;
+    color: #f5f5f5;
 }
