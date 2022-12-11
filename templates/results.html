@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Results CSS File -->
-        <link rel="stylesheet" href="../static/styles/results.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/results.css') }}">
         <!-- Mulish Font Family -->
         <link href="https://fonts.cdnfonts.com/css/mulish" rel="stylesheet">
         <!-- Bootstrap CSS and Javascript -->
@@ -52,8 +52,7 @@
                   </div>
                   <div class="book-recs">
                     <h5>{{book[0]}}</h5>
-                    <h5>{{book[1]}}</h5>
-                    <h5>{{book[1]}}</h5>
+                    
                   </div>
                 </div>
             </div>

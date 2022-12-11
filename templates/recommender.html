@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Recommender</title>
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="../static/styles/recommender.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/recommender.css') }}">
     <!-- Mulish Font Family -->
     <link href="https://fonts.cdnfonts.com/css/mulish" rel="stylesheet">
     <!-- Bootstrap CSS and Javascript -->
@@ -70,7 +70,7 @@
           <p class="lead ">Select a book you've read from the dropdown list to get recommendations on what books you might like to read next.</p>
         </div>
       </div>
-      <form action="results.html">
+      <form action="{{url_for('recommend_book')}}">
         <div class="select-book">
           <select id="bookChoice" onChange="update()" name="book-choice">
             <option>Choose a Book...</option>

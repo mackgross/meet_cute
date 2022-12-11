@@ -55,23 +55,26 @@ tfidf_matrix = tf.fit_transform(norm_corpus)
 # main functionality
 doc_similarity = cosine_similarity(tfidf_matrix)
 doc_similarity_df = pd.DataFrame(doc_similarity)
-book_list = book_df['title'].values
-author_list = book_df['author'].values
+book_list = np.array(book_df['title'].values)
+author_list = np.array(book_df['author'].values)
 # adapted from week 8 coding practice, returns top 3 similar books for the selected book
 def book_recs(book_title, books=book_list, authors=author_list, doc_sims=doc_similarity_df):
-    book_index = np.where(books == book_title)[0][0]
-    book_similarities = doc_sims.iloc(book_index).values
-    similar_book_indices = np.argsort(-book_similarities)[1:4]
-    similar_books = books[similar_book_indices]
-    similar_authors = authors[similar_book_indices]
+    if isinstance(book_title, str):
+        book_index = np.where(books == book_title)[0][0]
+        book_similarities = doc_sims.iloc[book_index].values
+        similar_book_indices = np.argsort(-book_similarities)[1:4]
+        similar_books = books[similar_book_indices]
+        similar_authors = authors[similar_book_indices]
 
-    books_with_authors = []
-    for i in range(len(similar_books)):
-        b_title = similar_books[i]
-        b_author = similar_authors[i]
-        books_with_authors.append(str(b_title + 'by ' + b_author))
-    
-    return books_with_authors
+        books_with_authors = []
+        for i in range(len(similar_books)):
+            b_title = similar_books[i]
+            b_author = similar_authors[i]
+            books_with_authors.append(str(b_title + 'by ' + b_author))
+        
+        return books_with_authors
+    else:
+        return "book title was not a string"
 
 # create and run app
 app = Flask(__name__)
@@ -80,10 +83,24 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route("/recommendations", methods=["POST", "GET"])
+@app.route("/index.html")
+def return_home():
+    return render_template('index.html')
+
+@app.route("/recommender.html")
+def recommendations():
+    return render_template('recommender.html')
+
+@app.route('/suggestions.html')
+def suggestions():
+    return render_template('suggestions.html')
+
+@app.route("/results")
 def recommend_book():
-    recommendations = request.args.get('book-choice')
-    books = book_recs(recommendations)
+    choice = request.args.get('book-choice')
+    for b in range(len(book_list)):
+        if book_list[b] == choice:
+            books = book_recs(book_title=choice)
     return render_template('results.html', book=books)
 
 if __name__ == "__main__":
