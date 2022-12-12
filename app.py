@@ -20,6 +20,7 @@ book_data = 'books.csv'
 book_df = pd.read_csv(book_data)
 
 # Preprocess text data
+nltk.download()
 en_stopwords = nltk.corpus.stopwords.words('english')
 
 # funtion modified from Sarkar
