@@ -7,4 +7,4 @@ WORKDIR /app
 
 ENV PORT 8080
 
-CMD exec gunicorn --bing :$PORT --workers 1 --threads 8
+CMD exec gunicorn --bing :$PORT --workers 1 --threads 8 app:app
