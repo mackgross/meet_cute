@@ -1,1 +1,5 @@
-*.pyc
+# .gitignore
+venv
+__pycachce__
+.ipynb_checkpoints
+.vscode
