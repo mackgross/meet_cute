@@ -13,6 +13,7 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, render_template, request
+import os
 
 # Load the dataset
 book_data = 'books.csv'
@@ -110,4 +111,4 @@ def recommend_book():
     return render_template('results.html', book=books)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
